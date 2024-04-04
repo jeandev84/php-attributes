@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Validation;
 
+use App\Validation\Rules\Contract\ValidationRuleInterface;
+use ReflectionAttribute;
+
 /**
  * Validator
  *
@@ -32,18 +35,26 @@ class Validator
           // Instantiate a $reflector using new ReflectionClass($object);
           $reflector = new \ReflectionClass($object);
 
-          dd($reflector);
           // Loop over the reflector properties
+          foreach ($reflector->getProperties() as $property) {
 
-             // Get the Attributes using $property->getAttributes(); (only if ValidationRuleInterface)
+              // Get the Attributes using $property->getAttributes(); (only if ValidationRuleInterface)
+              $attributes = $property->getAttributes(
+                  ValidationRuleInterface::class,
+                   ReflectionAttribute::IS_INSTANCEOF
+              );
 
-             // Loop over the Attributes
+              // Loop over the Attributes
+              foreach ($attributes as $attribute) {
 
-                 // Instantiate a PropertyValidator instance using $attribute->getValidator();
+                  // Call $attribute->getValidator();
 
-                 // Ask IF the property does not validate
+                  // Ask IF the property does not validate
 
-                     // Add the property to errors with a message
+                  // Add the property to errors with a message
+              }
+
+          }
       }
 
 

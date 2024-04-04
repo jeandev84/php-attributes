@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use App\Validation\Rules\Contract\ValidationRuleInterface;
 use Attribute;
 
 /**
@@ -15,7 +16,11 @@ use Attribute;
  * @package  App\Validation\Rules
 */
 #[Attribute]
-class Required
+class Required implements ValidationRuleInterface
 {
 
+    public function getValidator()
+    {
+        // TODO: Implement getValidator() method.
+    }
 }
