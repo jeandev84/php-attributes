@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Validation\Rules;
 
 use App\Validation\Rules\Contract\ValidationRuleInterface;
+use App\Validation\Validators\Contract\ValidatorInterface;
+use App\Validation\Validators\RequiredValidator;
 use Attribute;
 
 /**
@@ -19,8 +21,11 @@ use Attribute;
 class Required implements ValidationRuleInterface
 {
 
-    public function getValidator()
+    /**
+     * @inheritDoc
+    */
+    public function getValidator(): ValidatorInterface
     {
-        // TODO: Implement getValidator() method.
+        return new RequiredValidator();
     }
 }

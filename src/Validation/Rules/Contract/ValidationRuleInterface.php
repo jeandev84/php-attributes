@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Validation\Rules\Contract;
 
 
+use App\Validation\Validators\Contract\ValidatorInterface;
+
 /**
  * ValidationRuleInterface
  *
@@ -15,5 +17,9 @@ namespace App\Validation\Rules\Contract;
 */
 interface ValidationRuleInterface
 {
-      public function getValidator();
+
+      /**
+       * @return ValidatorInterface
+      */
+      public function getValidator(): ValidatorInterface;
 }

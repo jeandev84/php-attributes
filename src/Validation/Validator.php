@@ -48,10 +48,13 @@ class Validator
               foreach ($attributes as $attribute) {
 
                   // Call $attribute->getValidator();
+                  $validator = $attribute->newInstance()->getValidator();
 
                   // Ask IF the property does not validate
-
-                  // Add the property to errors with a message
+                  if (!$validator->validate($property->getValue($object))) {
+                      // Add the property to errors with a message
+                      dd('failed');
+                  }
               }
 
           }
