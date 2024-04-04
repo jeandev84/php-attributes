@@ -14,5 +14,7 @@ $validator->validate($userRegistration);
 
 $errors = $validator->getErrors();
 
+dd($errors);
+
 
 
