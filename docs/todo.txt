@@ -1,0 +1,7 @@
+- Email rule attribute
+- Adding multiple attributes to single members
+- Create a getter for retrieving errors
+- Create a form to submit data (maybe display errors?)
+- Save the data to a DB
+- Make UserRegistration final
+- Attribute arguments
