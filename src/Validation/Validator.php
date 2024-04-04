@@ -30,8 +30,9 @@ class Validator
       public function validate(object $object): void
       {
           // Instantiate a $reflector using new ReflectionClass($object);
+          $reflector = new \ReflectionClass($object);
 
-
+          dd($reflector);
           // Loop over the reflector properties
 
              // Get the Attributes using $property->getAttributes(); (only if ValidationRuleInterface)
@@ -53,6 +54,6 @@ class Validator
       */
       public function getErrors(): array
       {
-
+         return $this->errors;
       }
 }
